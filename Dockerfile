@@ -22,11 +22,11 @@ RUN PACKAGES="wget libswitch-perl" \
         && chown -R root:adm /opt/TinyTeX \
         && chmod -R g+w /opt/TinyTeX \
         && chmod -R g+wx /opt/TinyTeX/bin \
-        && tlmgr install epstopdf-pkg \
+        && tlmgr install epstopdf-pkg
         # Cleanup
-        && apk del --purge -qq $PACKAGES \
-        && apk del --purge -qq \
-        && rm -rf /var/lib/apt/lists/*
+        #&& apk del --purge -qq $PACKAGES \
+        #&& apk del --purge -qq \
+        #&& rm -rf /var/lib/apt/lists/*
 
 
 COPY --from=build /go/bin/grafana-reporter /usr/local/bin
